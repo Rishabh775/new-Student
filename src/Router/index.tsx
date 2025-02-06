@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loading from "../components/Loading";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 const Confirmation = lazy(() => import("../pages/Confirmation"));
 const MobileEntry = lazy(() => import("../pages/MobileEntry"));
@@ -16,7 +16,8 @@ interface RouteProps {
 }
 
 function ProtectedRoute({ element }: RouteProps): JSX.Element {
-  const isToken = Cookies.get("token");
+  // const isToken = Cookies.get("token");
+  const isToken = true;
   return isToken ? element : <Navigate to="/" replace />;
 }
 
