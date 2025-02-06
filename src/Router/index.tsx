@@ -11,14 +11,13 @@ const Registration = lazy(() => import("../pages/Registration"));
 const Result = lazy(() => import("../pages/Result"));
 const NotFound = lazy(() => import("../components/NotFound"));
 
-interface Route {
+interface RouteProps {
   element: JSX.Element;
 }
 
-function ProtectedRoute({ element }: Route): JSX.Element {
+function ProtectedRoute({ element }: RouteProps): JSX.Element {
   const isToken = Cookies.get("token");
-  // Use <Navigate /> instead of returning `void` from navigate()
-  return isToken ? element : <Navigate to="*" replace />;
+  return isToken ? element : <Navigate to="/" replace />;
 }
 
 function AppRouter() {
